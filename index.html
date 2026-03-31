@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正社員募集｜株式会社ルクスホーム</title>
+<style>
+body {
+  margin:0;
+  font-family:"Hiragino Mincho Pro", serif;
+  background:#fdfaf5;
+  color:#333;
+  line-height:1.6;
+}
+
+/* 固定ナビバー */
+.navbar {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#1c1c1c;
+  z-index:999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:60px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.navbar ul {
+  list-style:none;
+  display:flex;
+  margin:0;
+  padding:0;
+}
+.navbar ul li {
+  margin:0 20px;
+}
+.navbar ul li a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:0.3s;
+}
+.navbar ul li a:hover {
+  color:#d4af37;
+}
+
+/* ヘッダー */
+.header {
+  position: relative;
+  text-align: center;
+  color:#fff;
+  height:500px;
+  background: url('https://images.pexels.com/photos/33342710/pexels-photo-33342710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover;
+  margin-top:60px; /* ナビバー分の余白 */
+}
+.header::after {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+}
+.header-content {
+  position: relative;
+  z-index:1;
+  top:50%;
+  transform: translateY(-50%);
+}
+.header h1 {
+  font-size:2.8rem;
+  font-weight:700;
+  color:#d4af37;
+  margin-bottom:12px;
+}
+.header p {
+  font-size:1.2rem;
+  color:#f5f5f5;
+}
+
+/* セクション */
+.section {
+  padding:60px 20px;
+  text-align:center;
+  background:#fdfaf5;
+}
+.section h2 {
+  font-size:2.2rem;
+  color:#b8860b;
+  margin-bottom:20px;
+}
+.section p {
+  max-width:720px;
+  margin:0 auto 20px;
+  font-size:1.1rem;
+}
+
+/* カード領域 */
+.benefits {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  margin-top:40px;
+}
+.benefit {
+  background:#fff8f0;
+  border-radius:12px;
+  padding:20px;
+  width:280px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+  text-align:left;
+  border-left:6px solid #d4af37;
+}
+.benefit img {
+  width:100%;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+.benefit h3 {
+  font-size:1.3rem;
+  color:#b8860b;
+  margin-bottom:8px;
+}
+
+/* 仕事内容・応募条件 */
+ul {
+  list-style:none;
+  padding:0;
+  max-width:600px;
+  margin:20px auto 0;
+  text-align:left;
+}
+ul li {
+  margin-bottom:12px;
+  padding-left:10px;
+  position: relative;
+}
+ul li::before {
+  content:"•";
+  position:absolute;
+  left:0;
+  color:#d4af37;
+  font-weight:bold;
+}
+
+/* 応募CTA */
+.apply {
+  background:#1c1c1c;
+  color:#fff;
+  padding:60px 20px;
+  text-align:center;
+}
+.apply h2 {
+  font-size:2.2rem;
+  color:#d4af37;
+  margin-bottom:12px;
+}
+.apply p {
+  font-size:1.1rem;
+  margin-bottom:24px;
+}
+.apply a {
+  background:#d4af37;
+  color:#1c1c1c;
+  padding:15px 50px;
+  border-radius:10px;
+  font-size:1.2rem;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+.apply a:hover {
+  background:#c29b2f;
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* フッター */
+.footer {
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:18px;
+  font-size:0.9rem;
+}
+
+/* 社員の声カルーセル */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin:40px auto 0;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  background:#fff8f0;
+  border-left:6px solid #d4af37;
+  border-radius:8px;
+  padding:25px;
+  font-size:1.1rem;
+  line-height:1.6;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+  text-align:left;
+}
+
+/* ボタン */
+.carousel-btn {
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  padding:10px 15px;
+  font-size:1.5rem;
+  cursor:pointer;
+  border-radius:50%;
+}
+.carousel-btn.prev { left:10px; }
+.carousel-btn.next { right:10px; }
+.carousel-btn:hover { background:rgba(0,0,0,0.8); }
+
+/* ページネーションドット */
+.carousel-dots {
+  text-align: center;
+  margin-top:15px;
+}
+.carousel-dots .dot {
+  display: inline-block;
+  width:12px;
+  height:12px;
+  margin:0 6px;
+  background:#ccc;
+  border-radius:50%;
+  cursor:pointer;
+  transition: background 0.3s;
+}
+.carousel-dots .dot.active { background:#d4af37; }
+
+@media(max-width:768px){
+  .benefits{ flex-direction:column; align-items:center; }
+  .carousel{ max-width:90%; }
+}
+.carousel-item p{ margin:0; }
+</style>
+</head>
+<body>
+
+<!-- 固定ナビバー -->
+<div class="navbar">
+  <ul>
+    <li><a href="https://www.lxhome.jp/">TOP</a></li>
+    <li><a href="https://www.lxhome.jp/company">会社概要</a></li>
+    <li><a href="https://www.lxhome.jp/contact">お問い合わせ</a></li>
+  </ul>
+</div>
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="header-content">
+    <h1>あなたの才能を、ルクスホームで輝かせる</h1>
+    <p>正社員募集｜未経験OK・上質な環境でキャリアアップ</p>
+  </div>
+</div>
+
+<!-- 働く魅力 -->
+<div class="section">
+  <h2>働く魅力</h2>
+  <p>地域から信頼されるサービスを提供する当社では、社員一人ひとりが主役です。豊富な研修・サポート体制で未経験からでも安心して働ける環境です。</p>
+  <div class="benefits">
+    <div class="benefit">
+      <img src="https://images.pexels.com/photos/33342702/pexels-photo-33342702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="高歩合・昇給あり">
+      <h3>高歩合・昇給あり</h3>
+      <p>成果を正当に評価し、給与やポジションに反映します。</p>
+    </div>
+    <div class="benefit">
+      <img src="https://images.pexels.com/photos/33342711/pexels-photo-33342711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="未経験歓迎">
+      <h3>未経験歓迎</h3>
+      <p>研修制度が充実。安心してキャリアをスタートできます。</p>
+    </div>
+    <div class="benefit">
+      <img src="https://images.pexels.com/photos/3184632/pexels-photo-3184632.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="雇用形態">
+      <h3>雇用形態</h3>
+      <p>正社員雇用も、エージェント契約も可能。ライフスタイルに合わせた働き方が選べます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 仕事内容 -->
+<div class="section">
+  <h2>仕事内容</h2>
+  <p>不動産仲介業務に関わる下記の業務を担当していただきます。</p>
+  <ul>
+    <li>顧客対応</li>
+    <li>営業活動</li>
+    <li>案件紹介・マッチング業務</li>
+    <li>チームとのコミュニケーションと改善提案</li>
+  </ul>
+</div>
+
+<!-- 応募条件 -->
+<div class="section">
+  <h2>応募条件</h2>
+  <p>下記の条件を満たす方を歓迎します。</p>
+  <ul>
+    <li>やる気と誠実さがあればOK</li>
+    <li>営業経験者は優遇</li>
+    <li>宅建士資格取得者優遇</li>
+    <li>自動車運転免許必須（AT限定可）</li>
+  </ul>
+</div>
+
+<!-- 社員の声 -->
+<div class="section">
+  <h2>社員の声</h2>
+  <p>ルクスホームで働く社員のリアルな声をご紹介します。キャリアアップややりがいを感じる瞬間をぜひご覧ください。</p>
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <p>未経験で入社しましたが、先輩のサポートのおかげで半年で売上トップになれました。成長を実感できる環境です。</p>
+      </div>
+      <div class="carousel-item">
+        <p>正社員として安定した雇用の中で、フレキシブルな働き方ができています。プライベートも充実しています。</p>
+      </div>
+      <div class="carousel-item">
+        <p>自分のライフスタイルに合わせた働き方ができ、成果が給与に反映されるのでモチベーションが上がります。</p>
+      </div>
+    </div>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</div>
+
+<!-- 応募CTA -->
+<div class="apply">
+  <h2>今すぐ応募する</h2>
+  <p>LINEで簡単応募できます</p>
+  <a href="https://lin.ee/yAl4HW2" target="_blank">LINEで応募する</a>
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  © Lx Home Co., Ltd. 
+</div>
+
+<script>
+// カルーセル
+const track = document.querySelector('.carousel-track');
+const items = Array.from(track.children);
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+const dots = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+let index = 0;
+function updateCarousel() {
+  track.style.transform = 'translateX(' + (-index * 100) + '%)';
+  dots.forEach((dot,i)=>dot.classList.toggle('active', i===index));
+}
+prevBtn.addEventListener('click', () => { index = (index===0)?items.length-1:index-1; updateCarousel(); });
+nextBtn.addEventListener('click', () => { index = (index===items.length-1)?0:index+1; updateCarousel(); });
+dots.forEach((dot,i)=>{ dot.addEventListener('click', ()=>{ index=i; updateCarousel(); }); });
+setInterval(()=>{ index=(index===items.length-1)?0:index+1; updateCarousel(); },3000);
+</script>
+
+</body>
+</html>
